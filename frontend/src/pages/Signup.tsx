@@ -1,9 +1,9 @@
 import { SignupForm } from '@/components/signup-form'
 import { GalleryVerticalEnd } from 'lucide-react'
 
-type Props = {}
+// type Props = {}
 
-function Signup({}: Props) {
+function Signup() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="relative hidden bg-muted lg:block">
