@@ -285,7 +285,7 @@ function BentoCard({ children, className = "", style = {} }) {
 }
 
 // ── Main Landing Page ────────────────────────────────────────────────────────
-export default function LandingPage() {
+function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef(null);
@@ -1330,3 +1330,6 @@ export default function LandingPage() {
     </div>
   );
 }
+
+export default LandingPage;
+

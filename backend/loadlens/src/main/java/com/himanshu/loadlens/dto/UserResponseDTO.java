@@ -13,6 +13,7 @@ public class UserResponseDTO {
     private String email;
     private boolean enabled;
     private String provider;
+    private String avatarUrl;
     private Instant createdAt;
 
 }

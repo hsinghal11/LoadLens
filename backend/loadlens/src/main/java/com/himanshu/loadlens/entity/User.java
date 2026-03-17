@@ -34,6 +34,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(255) default 'USER'")
     private Role role = Role.USER;
+    
+    @Column(name = "avatar_url")
+    private String avatarUrl;
 
     @Column(nullable = false, columnDefinition = "boolean default true")
     private boolean enabled = true;

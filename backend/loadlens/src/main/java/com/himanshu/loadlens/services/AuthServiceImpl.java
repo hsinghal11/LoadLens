@@ -35,6 +35,9 @@ public class AuthServiceImpl implements AuthService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+        if (request.getAvatarUrl() != null && !request.getAvatarUrl().isBlank()) {
+            user.setAvatarUrl(request.getAvatarUrl());
+        }
 
         User savedUser = userRepository.save(user);
         var jwtToken = jwtService.generateToken(savedUser);
@@ -85,6 +88,7 @@ public class AuthServiceImpl implements AuthService {
                 .email(user.getEmail())
                 .enabled(user.isEnabled())
                 .provider(user.getProvider().name())
+                .avatarUrl(user.getAvatarUrl())
                 .createdAt(user.getCreatedAt())
                 .build();
     }

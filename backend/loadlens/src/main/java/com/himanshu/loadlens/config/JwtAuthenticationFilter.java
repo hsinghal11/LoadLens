@@ -30,7 +30,7 @@ public class  JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull FilterChain filterChain) throws ServletException, IOException {
 
         // Skip filter for auth routes
-        if (request.getServletPath().contains("/api/v1/user")) {
+        if (request.getServletPath().contains("/api/v1/user") || request.getServletPath().startsWith("/oauth2") || request.getServletPath().startsWith("/login")) {
             filterChain.doFilter(request, response);
             return;
         }
