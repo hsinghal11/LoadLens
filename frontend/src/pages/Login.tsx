@@ -1,9 +1,16 @@
 import { LoginForm } from '@/components/login-form'
 import { GalleryVerticalEnd } from "lucide-react"
-
-// type Props = {}
+import { Navigate } from "react-router-dom"
+import useAuthStore from "@/store/useAuthStore"
 
 function Login() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+
+  // Already logged in — send straight to dashboard
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />
+  }
+
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">

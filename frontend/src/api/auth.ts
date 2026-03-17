@@ -1,13 +1,8 @@
 import { authResponseSchema } from '@/schema/authResponse';
 import type { loginSchema } from '@/schema/loginCred';
 import { registerSchema } from '@/schema/resgisterCred';
-import axios from 'axios';
+import api from './axios';
 import type z from 'zod';
-
-const api = axios.create({
-    baseURL: import.meta.env.VITE_BASE_URL || '',
-});
-
 
 export const authApi = {
   login: async (credentials: z.infer<typeof loginSchema>) => {

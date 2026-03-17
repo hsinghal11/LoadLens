@@ -1,9 +1,16 @@
 import { SignupForm } from '@/components/signup-form'
 import { GalleryVerticalEnd } from 'lucide-react'
-
-// type Props = {}
+import { Navigate } from 'react-router-dom'
+import useAuthStore from '@/store/useAuthStore'
 
 function Signup() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+
+  // Already logged in — send straight to dashboard
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />
+  }
+
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="relative hidden bg-muted lg:block">
